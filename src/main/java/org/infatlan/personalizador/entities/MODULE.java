@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -26,16 +27,17 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 
-@Entity(name = "ROLE")
-@Table(name = "ROLE")
-public class ROLE implements Serializable {
+@Entity(name = "MODULE")
+@Table(name = "MODULE")
 
-	private static final long serialVersionUID = 4901039598478155931L;
+public class MODULE implements Serializable {
+
+	private static final long serialVersionUID = -370641891832972459L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ROLE_CODE", nullable = false, unique = true)
-	private int ROLE_CODE;
+	@Column(name = "MODULE_CODE", nullable = false, unique = true)
+	private int MODULE_CODE;
 
 	@Column(name = "NAME", nullable = true, unique = false)
 	private String NAME;
@@ -46,13 +48,18 @@ public class ROLE implements Serializable {
 	@Column(name = "STATUS", nullable = true, unique = false)
 	private Integer STATUS;
 
+	@Column(name = "URL", nullable = true, unique = false)
+	private String URL;
+
+	@Column(name = "CATEGORY", nullable = true, unique = false)
+	private Integer CATEGORY;
+
 	@Column(name = "AVAILABLE_FIELD1", nullable = true, unique = false)
 	private Integer AVAILABLE_FIELD1;
 
-	@Column(name = "AVAILABLE_FIELD12", nullable = true, unique = false)
-	private String AVAILABLE_FIELD12;
+	@Column(name = "AVAILABLE_FIELD2", nullable = true, unique = false)
+	private String AVAILABLE_FIELD2;
 
-	@Column(name = "AVAILABLE_FIELD13", nullable = true, unique = false)
-	private String AVAILABLE_FIELD13;
-
+	@Column(name = "AVAILABLE_FIELD3", nullable = true, unique = false)
+	private String AVAILABLE_FIELD3;
 }

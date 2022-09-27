@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -16,7 +17,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- * Realizado por Maria Alvarado 25/9/2022
+ * Realizado por Maria Alvarado 26/9/2022
  **/
 
 @Getter
@@ -26,16 +27,17 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 
-@Entity(name = "ROLE")
-@Table(name = "ROLE")
-public class ROLE implements Serializable {
+@Entity(name = "PERMISSION")
+@Table(name = "PERMISSION")
 
-	private static final long serialVersionUID = 4901039598478155931L;
+public class PERMISSION implements Serializable {
+
+	private static final long serialVersionUID = 3776035368179420168L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ROLE_CODE", nullable = false, unique = true)
-	private int ROLE_CODE;
+	@Column(name = "PERMISSION_CODE", nullable = false, unique = true)
+	private int PERMISSION_CODE;
 
 	@Column(name = "NAME", nullable = true, unique = false)
 	private String NAME;
@@ -49,10 +51,9 @@ public class ROLE implements Serializable {
 	@Column(name = "AVAILABLE_FIELD1", nullable = true, unique = false)
 	private Integer AVAILABLE_FIELD1;
 
-	@Column(name = "AVAILABLE_FIELD12", nullable = true, unique = false)
-	private String AVAILABLE_FIELD12;
+	@Column(name = "AVAILABLE_FIELD2", nullable = true, unique = false)
+	private String AVAILABLE_FIELD2;
 
-	@Column(name = "AVAILABLE_FIELD13", nullable = true, unique = false)
-	private String AVAILABLE_FIELD13;
-
+	@Column(name = "AVAILABLE_FIELD3", nullable = true, unique = false)
+	private String AVAILABLE_FIELD3;
 }
