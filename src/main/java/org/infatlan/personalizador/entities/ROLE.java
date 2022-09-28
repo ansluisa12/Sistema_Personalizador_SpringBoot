@@ -49,10 +49,10 @@ public class ROLE implements Serializable {
 	@Column(name = "AVAILABLE_FIELD1", nullable = true, unique = false)
 	private Integer AVAILABLE_FIELD1;
 
-	@Column(name = "AVAILABLE_FIELD12", nullable = true, unique = false)
-	private String AVAILABLE_FIELD12;
+	@Column(name = "AVAILABLE_FIELD2", nullable = true, unique = false)
+	private String AVAILABLE_FIELD2;
 
-	@Column(name = "AVAILABLE_FIELD13", nullable = true, unique = false)
-	private String AVAILABLE_FIELD13;
+	@Column(name = "AVAILABLE_FIELD3", nullable = true, unique = false)
+	private String AVAILABLE_FIELD3;
 
 }
