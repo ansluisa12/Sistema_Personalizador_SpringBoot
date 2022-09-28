@@ -32,8 +32,7 @@ public class AuthController {
 	                        new AuthDto(
 	                            JWTUtils.getJWTToken(
 	                                loginDto.getUsername(), 
-	                                userData[0]
-	                                ), 
+	                                userData[0]), 
 	                                userData[2],
 	                                userData[3]));
 
