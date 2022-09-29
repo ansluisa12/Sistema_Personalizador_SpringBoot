@@ -1,0 +1,54 @@
+<definitions xmlns:wsdlns="Web_Services_Autenticacion" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="Web_Services_Autenticacion" name="WebS" targetNamespace="Web_Services_Autenticacion">
+    <types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="Web_Services_Autenticacion" elementFormDefault="qualified">
+            <element name="WebS.Execute">
+                <complexType>
+                    <sequence>
+                        <element minOccurs="1" maxOccurs="1" name="Vusuario" type="xsd:string" />
+                        <element minOccurs="1" maxOccurs="1" name="Vpassword" type="xsd:string" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="WebS.ExecuteResponse">
+                <complexType>
+                    <sequence>
+                        <element minOccurs="1" maxOccurs="1" name="Ban" type="xsd:short" />
+                        <element minOccurs="1" maxOccurs="1" name="Item" type="xsd:string" />
+                        <element minOccurs="1" maxOccurs="1" name="Nombre" type="xsd:string" />
+                        <element minOccurs="1" maxOccurs="1" name="Perfil" type="xsd:string" />
+                        <element minOccurs="1" maxOccurs="1" name="Atl" type="xsd:string" />
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+    </types>
+    <message name="WebS.ExecuteSoapIn">
+        <part name="parameters" element="tns:WebS.Execute" />
+    </message>
+    <message name="WebS.ExecuteSoapOut">
+        <part name="parameters" element="tns:WebS.ExecuteResponse" />
+    </message>
+    <portType name="WebSSoapPort">
+        <operation name="Execute">
+            <input message="wsdlns:WebS.ExecuteSoapIn" />
+            <output message="wsdlns:WebS.ExecuteSoapOut" />
+        </operation>
+    </portType>
+    <binding name="WebSSoapBinding" type="wsdlns:WebSSoapPort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+        <operation name="Execute">
+            <soap:operation soapAction="Web_Services_Autenticacionaction/AWEBS.Execute" />
+            <input>
+                <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+        </operation>
+    </binding>
+    <service name="WebS">
+        <port name="WebSSoapPort" binding="wsdlns:WebSSoapBinding">
+            <soap:address location="http://150.150.6.221:8081/Autenticacion/webs.aspx" />
+        </port>
+    </service>
+</definitions>
