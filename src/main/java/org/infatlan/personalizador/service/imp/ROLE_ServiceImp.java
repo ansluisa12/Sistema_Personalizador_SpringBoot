@@ -19,6 +19,7 @@ public class ROLE_ServiceImp implements ROLE_Service {
 	@Override
 	public Map<String, Object> getROLE() {
 		List<ROLE> advance = role_Repository.getROLE();
+		System.out.println(advance);
 		return ResponseUtil.getResponse("200", "OK", advance);
 	}
 

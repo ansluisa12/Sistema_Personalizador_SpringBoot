@@ -27,7 +27,7 @@ public class ROLE_Controller {
 			    Map<String, Object> response = role_service.getROLE();
 			    return ResponseEntity
 			      .status(Integer.parseInt((String) response.get("Status")))
-			      .body(response.get("Object"));
+			      .body(response.get(""));
 			  }
 
 }

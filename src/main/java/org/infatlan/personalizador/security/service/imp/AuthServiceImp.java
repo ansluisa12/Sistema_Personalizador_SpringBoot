@@ -25,8 +25,7 @@ public class AuthServiceImp implements AuthService {
                 SoapClientConfig.class);
         ArticleClient articleClient = annotationConfigApplicationContext.getBean(ArticleClient.class);
         WebSExecuteResponse webSExecuteResponse = articleClient.getArticle(username, password);
-        System.out.println(webSExecuteResponse.getPerfil());
-        System.out.println(webSExecuteResponse.getBan());
+       
         if (webSExecuteResponse.getBan() == 1) {
             return true;
         }
