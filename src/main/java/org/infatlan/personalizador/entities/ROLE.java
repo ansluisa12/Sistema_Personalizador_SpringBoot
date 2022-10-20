@@ -30,7 +30,7 @@ import lombok.ToString;
 @Table(name = "ROLE")
 public class ROLE implements Serializable {
 
-	private static final long serialVersionUID = 4901039598478155931L;
+	private static final long serialVersionUID = 4909039598478155931L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

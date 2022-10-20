@@ -22,6 +22,7 @@ public class JWTUtils {
 		String token = Jwts.builder().setSubject(username)
 				.claim("authorities",
 						grantedAuthorities.stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList()))
+				.claim("pais", "Honduras")
 				.setIssuedAt(new Date(System.currentTimeMillis()))
 				.setExpiration(new Date(System.currentTimeMillis() + (60000 * 60)))
 				.signWith(SignatureAlgorithm.HS256, getSecretKey().getBytes()).compact();

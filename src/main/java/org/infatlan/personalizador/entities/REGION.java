@@ -7,8 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -29,27 +27,20 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 
-@Entity(name = "COUNTRY")
-@Table(name = "COUNTRY")
+@Entity(name = "REGION")
+@Table(name = "REGION")
 
-public class COUNTRY implements Serializable{
+public class REGION implements Serializable {
 
-    private static final long serialVersionUID = 4909459598478155821L;
+    private static final long serialVersionUID = 4909039598478155821L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "COUNTRY_CODE", nullable = false, unique = true)
-    private int COUNTRY_CODE;
-    
-    @ManyToOne
-    @JoinColumn(name = "REGION_CODE", referencedColumnName = "REGION_CODE")
-    private REGION REGION_CODE;
+    @Column(name = "REGION_CODE", nullable = false, unique = true)
+    private int REGION_CODE;
 
     @Column(name = "NAME", nullable = true, unique = false)
     private String NAME;
-    
-    @Column(name = "SHORT_NAME", nullable = true, unique = false)
-    private String SHORT_NAME;
 
     @Column(name = "DESCRIPTION", nullable = true, unique = false)
     private String DESCRIPTION;
@@ -67,5 +58,4 @@ public class COUNTRY implements Serializable{
     private String AVAILABLE_FIELD3;
 
 }
-
 

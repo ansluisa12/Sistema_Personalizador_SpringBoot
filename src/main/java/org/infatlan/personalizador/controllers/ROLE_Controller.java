@@ -26,8 +26,8 @@ public class ROLE_Controller {
 			  public ResponseEntity<?> getROLE(@RequestHeader Map<String, String> headers) {
 			    Map<String, Object> response = role_service.getROLE();
 			    return ResponseEntity
-			      .status(Integer.parseInt((String) response.get("Status")))
-			      .body(response.get(""));
+			            .status(Integer.parseInt((String) response.get("Status")))
+			            .body(response.get("Object"));
 			  }
 
 }
