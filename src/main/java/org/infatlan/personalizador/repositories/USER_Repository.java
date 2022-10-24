@@ -1,5 +1,6 @@
 package org.infatlan.personalizador.repositories;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.infatlan.personalizador.entities.USER;
@@ -14,8 +15,8 @@ public interface USER_Repository extends JpaRepository<USER, Integer> {
 	@Query("SELECT U FROM USER U WHERE USERNAME = ?1")
 	public USER findByUserName(String USERNAME);
 	
-	@Query("SELECT U FROM USER U")
-    public USER findUsers();
+	 @Query("SELECT U FROM USER U")
+	 List<USER> getUsers();
 	
 	@Query(value = "SELECT "
 	        + "r.NAME, "

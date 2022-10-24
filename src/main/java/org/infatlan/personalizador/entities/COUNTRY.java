@@ -37,9 +37,8 @@ public class COUNTRY implements Serializable{
     private static final long serialVersionUID = 4909459598478155821L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "COUNTRY_CODE", nullable = false, unique = true)
-    private int COUNTRY_CODE;
+    private String COUNTRY_CODE;
     
     @ManyToOne
     @JoinColumn(name = "REGION_CODE", referencedColumnName = "REGION_CODE")

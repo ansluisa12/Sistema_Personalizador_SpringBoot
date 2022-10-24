@@ -21,15 +21,13 @@ import lombok.ToString;
  * Realizado por Maria Alvarado 26/9/2022
  **/
 
-@Getter
-@Setter
 @Data
 @AllArgsConstructor
 @ToString
 @NoArgsConstructor
 
 @Entity(name = "USER")
-@Table(name = "USER")
+@Table(name = "PUSERS")
 
 public class USER implements Serializable {
 
@@ -68,8 +66,8 @@ public class USER implements Serializable {
     @Column(name = "STATUS", nullable = true, unique = false)
     private Integer STATUS;
 
-    @Column(name = "CREATE_BY", nullable = true, unique = false)
-    private String CREATE_BY;
+    @Column(name = "CREATED_BY", nullable = true, unique = false)
+    private String CREATED_BY;
 
     @Column(name = "CREATION_DATE", nullable = true, unique = false)
     private String CREATION_DATE;

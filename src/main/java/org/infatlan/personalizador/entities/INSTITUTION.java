@@ -45,7 +45,7 @@ public class INSTITUTION implements Serializable{
     private INSTITUTION_TYPE INSTITUTION_TYPE_CODE;
     
     @ManyToOne
-    @JoinColumn(name = "COUNTRY_CODE", referencedColumnName = "INSTITUTION_TYPE_CODE")
+    @JoinColumn(name = "COUNTRY_CODE", referencedColumnName = "COUNTRY_CODE")
     private COUNTRY COUNTRY_CODE;
 
     @Column(name = "NAME", nullable = true, unique = false)
