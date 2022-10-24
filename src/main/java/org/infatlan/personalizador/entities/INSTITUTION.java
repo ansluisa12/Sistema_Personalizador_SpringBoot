@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -17,7 +19,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- * Realizado por Maria Alvarado 19/10/2022
+ * Realizado por Maria Alvarado 24/10/2022
  **/
 
 @Getter
@@ -27,17 +29,24 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 
-@Entity(name = "REGION")
-@Table(name = "REGION")
-
-public class REGION implements Serializable {
-
-    private static final long serialVersionUID = 4909099598478155821L;
-
+@Entity(name = "INSTITUTION")
+@Table(name = "INSTITUTION")
+public class INSTITUTION implements Serializable{
+    
+    private static final long serialVersionUID = 4909976348478155821L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "REGION_CODE", nullable = false, unique = true)
-    private int REGION_CODE;
+    @Column(name = "INSTITUTION_CODE", nullable = false, unique = true)
+    private int INSITUTION_CODE;
+    
+    @ManyToOne
+    @JoinColumn(name = "INSTITUTION_TYPE_CODE", referencedColumnName = "INSTITUTION_TYPE_CODE")
+    private INSTITUTION_TYPE INSTITUTION_TYPE_CODE;
+    
+    @ManyToOne
+    @JoinColumn(name = "COUNTRY_CODE", referencedColumnName = "INSTITUTION_TYPE_CODE")
+    private COUNTRY COUNTRY_CODE;
 
     @Column(name = "NAME", nullable = true, unique = false)
     private String NAME;
@@ -56,6 +65,6 @@ public class REGION implements Serializable {
 
     @Column(name = "AVAILABLE_FIELD3", nullable = true, unique = false)
     private String AVAILABLE_FIELD3;
+    
 
 }
-

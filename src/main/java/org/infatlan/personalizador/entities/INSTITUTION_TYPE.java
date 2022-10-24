@@ -17,7 +17,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- * Realizado por Maria Alvarado 19/10/2022
+ * Realizado por Maria Alvarado 24/10/2022
  **/
 
 @Getter
@@ -27,17 +27,16 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 
-@Entity(name = "REGION")
-@Table(name = "REGION")
-
-public class REGION implements Serializable {
-
-    private static final long serialVersionUID = 4909099598478155821L;
-
+@Entity(name = "INSTITUTION_TYPE")
+@Table(name = "INSTITUTION_TYPE")
+public class INSTITUTION_TYPE implements Serializable{
+    
+    private static final long serialVersionUID = 8709976598478155821L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "REGION_CODE", nullable = false, unique = true)
-    private int REGION_CODE;
+    @Column(name = "INSTITUTION_TYPE_CODE", nullable = false, unique = true)
+    private int INSTITUTION_TYPE_CODE;
 
     @Column(name = "NAME", nullable = true, unique = false)
     private String NAME;
@@ -56,6 +55,7 @@ public class REGION implements Serializable {
 
     @Column(name = "AVAILABLE_FIELD3", nullable = true, unique = false)
     private String AVAILABLE_FIELD3;
+    
 
 }
 

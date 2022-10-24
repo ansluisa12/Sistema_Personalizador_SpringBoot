@@ -34,7 +34,9 @@ public class AuthController {
 	                                loginDto.getUsername(), 
 	                                userData[0]), 
 	                                userData[2],
-	                                userData[3]));
+	                                userData[3],
+	                                userData[4],
+	                                userData[5]));
 
 			}
 

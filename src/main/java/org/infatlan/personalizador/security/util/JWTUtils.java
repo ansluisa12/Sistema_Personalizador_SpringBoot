@@ -3,7 +3,8 @@ package org.infatlan.personalizador.security.util;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
-
+import org.infatlan.personalizador.repositories.USER_Repository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.stereotype.Component;
@@ -15,6 +16,9 @@ import io.jsonwebtoken.SignatureAlgorithm;
 @Component
 public class JWTUtils {
 
+    @Autowired
+    USER_Repository ur;
+    
 	public static String getJWTToken(String username, String authorities) {
 
 		List<GrantedAuthority> grantedAuthorities = AuthorityUtils.commaSeparatedStringToAuthorityList(authorities);
@@ -22,7 +26,6 @@ public class JWTUtils {
 		String token = Jwts.builder().setSubject(username)
 				.claim("authorities",
 						grantedAuthorities.stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList()))
-				.claim("pais", "Honduras")
 				.setIssuedAt(new Date(System.currentTimeMillis()))
 				.setExpiration(new Date(System.currentTimeMillis() + (60000 * 60)))
 				.signWith(SignatureAlgorithm.HS256, getSecretKey().getBytes()).compact();

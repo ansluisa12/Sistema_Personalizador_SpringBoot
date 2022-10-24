@@ -12,5 +12,7 @@ public class AuthDto {
     private String token; 
     private String first_name; 
     private String last_name;
+    private String country;
+    private String branch;
 
 }

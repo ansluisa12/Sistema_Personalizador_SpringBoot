@@ -14,14 +14,24 @@ public interface USER_Repository extends JpaRepository<USER, Integer> {
 	@Query("SELECT U FROM USER U WHERE USERNAME = ?1")
 	public USER findByUserName(String USERNAME);
 	
+	@Query("SELECT U FROM USER U")
+    public USER findUsers();
+	
 	@Query(value = "SELECT "
-			+ "r.NAME, "
-			+ "u.USER_CODE, "
-			+ "u.FIRST_NAME, "
-			+ "u.LAST_NAME "
-			+ "FROM [USER] u "
-			+ "JOIN [ROLE] r ON u.ROLE_CODE = r.ROLE_CODE "
+	        + "r.NAME, "
+	        + "u.USER_CODE, "
+	        + "u.FIRST_NAME, "
+	        + "u.LAST_NAME, "
+	        + "c.NAME as COUNTRY, "
+	        + "b.NAME as BRANCH "
+	        + "FROM [USER] u "
+	        + "JOIN [ROLE] r ON u.ROLE_CODE = r.ROLE_CODE "
+	        + "JOIN [COUNTRY] c ON c.COUNTRY_CODE = u.COUNTRY_CODE "
+	        + "JOIN [BRANCH] b ON b.BRANCH_CODE = u.BRANCH_CODE "
 			+ "WHERE u.USER_NAME = :username", nativeQuery = true)
 	Optional<String> getInfoByUserName(@Param("username") String username);
+	
+	@Query("SELECT U.COUNTRY_CODE, U.BRANCH_CODE FROM USER U WHERE USERNAME = ?1")
+	Optional<String> findInfoByUserName(String USERNAME);
 
 }

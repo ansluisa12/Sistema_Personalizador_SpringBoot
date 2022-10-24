@@ -65,6 +65,9 @@ public class COUNTRY implements Serializable{
 
     @Column(name = "AVAILABLE_FIELD3", nullable = true, unique = false)
     private String AVAILABLE_FIELD3;
+    
+    
+    
 
 }
 
