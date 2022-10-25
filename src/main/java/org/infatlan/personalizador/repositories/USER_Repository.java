@@ -15,6 +15,9 @@ public interface USER_Repository extends JpaRepository<USER, Integer> {
 	@Query("SELECT U FROM USER U WHERE USERNAME = ?1")
 	public USER findByUserName(String USERNAME);
 	
+	@Query(value = "SELECT * FROM PUSERS U WHERE U.COUNTRY_CODE = :COUNTRY_CODE AND U.USER_NAME = :USERNAME",nativeQuery = true)
+	List<USER> checkUserCountry(@Param("COUNTRY_CODE")String COUNTRY_CODE, @Param("USERNAME") String USERNAME);
+	
 	 @Query("SELECT U FROM USER U")
 	 List<USER> getUsers();
 	
@@ -25,7 +28,7 @@ public interface USER_Repository extends JpaRepository<USER, Integer> {
 	        + "u.LAST_NAME, "
 	        + "c.NAME as COUNTRY, "
 	        + "b.NAME as BRANCH "
-	        + "FROM [USER] u "
+	        + "FROM [PUSERS] u "
 	        + "JOIN [ROLE] r ON u.ROLE_CODE = r.ROLE_CODE "
 	        + "JOIN [COUNTRY] c ON c.COUNTRY_CODE = u.COUNTRY_CODE "
 	        + "JOIN [BRANCH] b ON b.BRANCH_CODE = u.BRANCH_CODE "

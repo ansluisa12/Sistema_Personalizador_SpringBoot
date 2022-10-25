@@ -24,7 +24,7 @@ public class AuthController {
 	private ResponseEntity<AuthDto> authCredentials(@RequestBody LoginDto loginDto) {
 
 		loginDto.setUsername(loginDto.getUsername().toLowerCase());
-		if (authService.validateAD(loginDto.getUsername(), loginDto.getPassword()) == true) {
+		if (authService.validateAD(loginDto.getUsername(), loginDto.getPassword(), loginDto.getCountry()) == true) {
 			if (authService.getInfo(loginDto.getUsername()) != null) {
 				String[] userData = authService.getInfo(loginDto.getUsername());
 				

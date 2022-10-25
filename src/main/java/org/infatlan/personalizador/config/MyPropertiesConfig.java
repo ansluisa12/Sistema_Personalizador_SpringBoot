@@ -15,15 +15,15 @@ import lombok.Setter;
 @PropertySource(value = { "file:C:\\PersonalizadorConfig\\PersonalizadorConfig.properties" })
 public class MyPropertiesConfig {
 
-	@Value("${jdbc.driver}")
-	String driver;
+    @Value("${jdbc.driver}")
+    String driver;
 
-	@Value("${url}")
-	String url;
+    @Value("${url}")
+    String url;
 
-	@Value("${userdb}")
-	String user;
+    @Value("${userdb}")
+    String user;
 
-	@Value("${password}")
-	String password;
+    @Value("${password}")
+    String password;
 }

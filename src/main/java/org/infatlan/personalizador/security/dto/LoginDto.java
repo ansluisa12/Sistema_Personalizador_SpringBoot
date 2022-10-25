@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 public class LoginDto {
  
     private String username;
-    private String password; 
+    private String password;
+    private String country;
 
 }
