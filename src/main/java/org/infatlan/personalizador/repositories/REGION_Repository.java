@@ -18,6 +18,7 @@ public interface REGION_Repository extends JpaRepository<REGION, Integer>{
 	 @Query("SELECT U FROM REGION U")
 	 List<REGION> getRegion();
 	
+	//test
 	@Query(value = "SELECT "
 	        + "r.NAME, "
 	        + "u.REGION_CODE, "

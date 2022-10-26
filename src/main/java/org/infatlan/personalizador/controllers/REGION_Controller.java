@@ -20,6 +20,7 @@ public class REGION_Controller {
     @Autowired
     REGION_Service region_service;
 
+   //test 
     @RequestMapping(value = "", method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity<?> getRegion(@RequestHeader Map<String, String> headers) {
         Map<String, Object> response = region_service.getRegion();

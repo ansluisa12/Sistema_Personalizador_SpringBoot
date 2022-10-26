@@ -23,6 +23,7 @@ public class REGION_ServiceImp implements REGION_Service{
 	@Autowired
 	REGION_Repository REGION_Repository;
 	
+	//test
 	@Override
 	public Map<String, Object> getRegion(){
 	    List<REGION> region = REGION_Repository.getRegion(); //user_Repository.getUsers();
