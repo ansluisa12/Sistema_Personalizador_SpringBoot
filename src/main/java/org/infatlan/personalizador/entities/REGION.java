@@ -34,7 +34,7 @@ public class REGION implements Serializable {
 
     private static final long serialVersionUID = 4909099598478155821L;
 
-  //test
+  //test  sss
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "REGION_CODE", nullable = false, unique = true)
